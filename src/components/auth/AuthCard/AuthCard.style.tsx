@@ -30,10 +30,6 @@ export const HelperText = styled.span`
 export const HelperLink = styled.a`
   font-size: 16px;
   margin-left: 4px;
-  @media (max-width: 430px) {
-    margin-left: 0px;
-    margin-top: 4px;
-  }
   color: #1975d2;
   cursor: pointer;
   :link,
@@ -49,7 +45,4 @@ export const HelperLink = styled.a`
 export const HelperRow = styled.div`
   display: flex;
   margin-top: 16px;
-  @media (max-width: 430px) {
-    flex-direction: column;
-  }
 `;

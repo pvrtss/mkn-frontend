@@ -7,3 +7,7 @@ body {
   font-weight: 400;
   letter-spacing: 0.25px;
 }
+
+#root {
+  height: 100%;
+}
