@@ -1,4 +1,4 @@
-import { ds_Notification } from "./api/generated";
+import { ds_Notification, ds_Project } from "./api/generated";
 
 export const SomeNotificationsMock: ds_Notification[] = [
   {
@@ -27,5 +27,58 @@ export const SomeNotificationsMock: ds_Notification[] = [
     section_id: "ПСК Проминвест",
     status: "delivered",
     title: "Встреча с заказчиком",
+  },
+];
+
+export const SomeProjects: ds_Project[] = [
+  {
+    color: "#9F2525",
+    description:
+      "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium.",
+    id: "uuid22",
+    last_edited: "timestamp",
+    owner_id: "uuid1",
+    title: "Учеба",
+  },
+  {
+    color: "#323232",
+    description: "Напоминания по рабочим вопросам, так сказать.",
+    id: "uuid21",
+    last_edited: "timestamp",
+    owner_id: "uuid2",
+    title: "Работа",
+  },
+  {
+    color: "#2558DB",
+    description: "Вполне приличное",
+    id: "uuid23",
+    last_edited: "timestamp",
+    owner_id: "uuid3",
+    title: "Личное",
+  },
+  {
+    color: "#9F2525",
+    description:
+      "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium.",
+    id: "uuid22",
+    last_edited: "timestamp",
+    owner_id: "uuid1",
+    title: "Учеба",
+  },
+  {
+    color: "#323232",
+    description: "Напоминания по рабочим вопросам, так сказать.",
+    id: "uuid21",
+    last_edited: "timestamp",
+    owner_id: "uuid2",
+    title: "Работа",
+  },
+  {
+    color: "#2558DB",
+    description: "Вполне приличное",
+    id: "uuid23",
+    last_edited: "timestamp",
+    owner_id: "uuid3",
+    title: "Личное",
   },
 ];

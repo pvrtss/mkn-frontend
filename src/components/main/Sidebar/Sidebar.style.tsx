@@ -6,7 +6,7 @@ import { ReactComponent as UserSVG } from "../../../assets/user.svg";
 import { SidebarButtonProps } from "./Sidebar.types";
 
 export const SidebarWrap = styled.div`
-  width: 300px;
+  width: 250px;
   background: #131313;
   height: 100%;
   padding: 20px;

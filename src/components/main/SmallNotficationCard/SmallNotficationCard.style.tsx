@@ -19,6 +19,7 @@ export const SmallCardWrap = styled.div`
     border: 2px solid #63b5f8;
   }
   border: 2px solid #131313;
+  transition: 0.2s border;
 `;
 
 export const SmallCardTitle = styled.span`

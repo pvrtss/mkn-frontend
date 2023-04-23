@@ -2,7 +2,6 @@ import styled from "styled-components";
 import { ReactComponent as LogoSVG } from "../../../assets/mkn-logo.svg";
 
 export const PageWrap = styled.div`
-  height: 100%;
   background: #0c0c0c;
   display: flex;
 `;
@@ -21,6 +20,6 @@ export const StyledLogo = styled(LogoSVG)`
 export const PageContentWrap = styled.div`
   display: flex;
   flex-direction: column;
-  margin-left: 300px;
+  margin-left: 250px;
   width: 100%;
 `;
