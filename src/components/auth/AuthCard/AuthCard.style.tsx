@@ -30,7 +30,7 @@ export const HelperText = styled.span`
 export const HelperLink = styled.a`
   font-size: 16px;
   margin-left: 4px;
-  color: #1975d2;
+  color: #90caf9;
   cursor: pointer;
   :link,
   :visited {

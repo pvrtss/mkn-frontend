@@ -30,7 +30,7 @@ const TextFieldSx = {
       borderColor: "#808080",
     },
     "&:hover fieldset": {
-      borderColor: "#1975d2",
+      borderColor: "#90caf9",
     },
   },
   "& label": {

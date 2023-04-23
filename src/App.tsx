@@ -9,6 +9,13 @@ import {
 } from "react-router-dom";
 import { HomePage } from "./pages/HomePage";
 import { getBasename } from "./utils/getBasename";
+import { createTheme, ThemeProvider } from "@mui/material";
+
+const darkTheme = createTheme({
+  palette: {
+    mode: "dark",
+  },
+});
 
 function App() {
   const router = createBrowserRouter(
@@ -23,7 +30,11 @@ function App() {
       </Route>
     )
   );
-  return <RouterProvider router={router} />;
+  return (
+    <ThemeProvider theme={darkTheme}>
+      <RouterProvider router={router} />
+    </ThemeProvider>
+  );
 }
 
 const Root = () => {
