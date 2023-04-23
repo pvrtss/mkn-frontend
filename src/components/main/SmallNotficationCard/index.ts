@@ -1,0 +1,1 @@
+export { SmallNotficationCard } from "./SmallNotficationCard";

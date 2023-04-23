@@ -9,6 +9,7 @@ import {
 } from "./PageLayout.style";
 import { Sidebar } from "../../main/Sidebar";
 import { PropsWithChildren } from "react";
+import { Link } from "react-router-dom";
 
 export const PageLayout: React.FC<PropsWithChildren<PageLayoutProps>> = ({
   sidebarSection,
@@ -19,7 +20,9 @@ export const PageLayout: React.FC<PropsWithChildren<PageLayoutProps>> = ({
       <Sidebar selectedSection={sidebarSection} />
       <PageContentWrap>
         <PageHeader>
-          <StyledLogo></StyledLogo>
+          <Link to="/dashboard">
+            <StyledLogo></StyledLogo>
+          </Link>
         </PageHeader>
         {children}
       </PageContentWrap>
