@@ -3,5 +3,5 @@
 /* eslint-disable */
 
 export type internal_app_errorResponse = {
-    message?: string;
+  message?: string;
 };
