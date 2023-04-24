@@ -1,6 +1,6 @@
 export const TextFieldSx = {
   "& .MuiInput-underline:after": {
-    borderBottomColor: "yellow",
+    borderBottomColor: "#90caf9",
   },
   "& .MuiOutlinedInput-root": {
     "& fieldset": {

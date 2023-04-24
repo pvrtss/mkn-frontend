@@ -23,3 +23,12 @@ export const PageContentWrap = styled.div`
   margin-left: 250px;
   width: 100%;
 `;
+
+export const PageTitle = styled.div`
+  font-weight: 500;
+  font-size: 32px;
+`;
+
+export const PageContent = styled.div`
+  padding: 12px 60px 60px 60px;
+`;
