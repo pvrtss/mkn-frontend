@@ -1,14 +1,12 @@
 import React from "react";
 
-import { DashboardProps } from "./Dashboard.types";
-
 import { Section } from "../../components/main/Sidebar/Sidebar.types";
 import { PageLayout } from "../../components/common/PageLayout";
 import { SomeNotificationsMock, SomeProjects } from "../../mocks";
 import { UpcomingNotifications } from "../../components/main/UpcomingNotifications";
 import { ProjectGrid } from "../../components/main/ProjectGrid";
 
-export const Dashboard: React.FC<DashboardProps> = () => {
+export const Dashboard = () => {
   return (
     <PageLayout sidebarSection={Section.Dashboard}>
       <UpcomingNotifications notifications={SomeNotificationsMock} />

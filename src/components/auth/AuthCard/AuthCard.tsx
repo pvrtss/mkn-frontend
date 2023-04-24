@@ -19,27 +19,7 @@ import {
   registerSchema,
 } from "./schemas";
 import { useNavigate } from "react-router-dom";
-
-const TextFieldSx = {
-  mt: "16px",
-  "& .MuiInput-underline:after": {
-    borderBottomColor: "yellow",
-  },
-  "& .MuiOutlinedInput-root": {
-    "& fieldset": {
-      borderColor: "#808080",
-    },
-    "&:hover fieldset": {
-      borderColor: "#90caf9",
-    },
-  },
-  "& label": {
-    color: "#808080",
-  },
-  "& .MuiOutlinedInput-input": {
-    color: "white",
-  },
-};
+import { TextFieldSx } from "../../common/TextField.styles";
 
 export const AuthCard: React.FC<AuthCardTypes> = ({ login }) => {
   const [loading, setLoading] = useState(false);
@@ -92,7 +72,7 @@ export const AuthCard: React.FC<AuthCardTypes> = ({ login }) => {
       >
         <TextField
           margin="none"
-          sx={TextFieldSx}
+          sx={{ mt: "16px", ...TextFieldSx }}
           required={!login}
           fullWidth
           id="username"
@@ -101,13 +81,12 @@ export const AuthCard: React.FC<AuthCardTypes> = ({ login }) => {
           autoFocus
           error={!!errors["username"]}
           helperText={errors["username"] ? errors["username"].message : ""}
-          // eslint-disable-next-line
           {...register("username")}
         />
         {!login && (
           <TextField
             margin="none"
-            sx={TextFieldSx}
+            sx={{ mt: "16px", ...TextFieldSx }}
             required
             fullWidth
             id="email"
@@ -121,7 +100,7 @@ export const AuthCard: React.FC<AuthCardTypes> = ({ login }) => {
         )}
         <TextField
           margin="none"
-          sx={TextFieldSx}
+          sx={{ mt: "16px", ...TextFieldSx }}
           required={!login}
           fullWidth
           label="Пароль"

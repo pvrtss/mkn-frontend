@@ -1,1 +1,3 @@
-export type ProjectsPageProps = {};
+export type PickerHelperProps = {
+  marginTop?: string;
+};

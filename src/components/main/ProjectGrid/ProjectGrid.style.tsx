@@ -1,6 +1,8 @@
-import styled from "styled-components";
-import { ProjectGridWrapProps } from "./ProjectGrid.types";
+import styled, { keyframes } from "styled-components";
+import { fadeIn } from "react-animations";
 
+import { ProjectGridWrapProps } from "./ProjectGrid.types";
+const fadeInAnimation = keyframes`${fadeIn}`;
 export const ProjectGridWrap = styled.div<ProjectGridWrapProps>`
   padding: ${(props) =>
     props.paddingTop ? props.paddingTop + " 60px 60px 60px" : "60px"};
@@ -22,6 +24,7 @@ export const ProjectGridPlacer = styled.div`
   display: grid;
   gap: 60px;
   grid-template-columns: 1fr 1fr 1fr;
+  animation: 0.5s ${fadeInAnimation};
 `;
 
 export const EmptyProjectsStub = styled.div`
