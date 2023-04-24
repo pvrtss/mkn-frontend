@@ -9,14 +9,23 @@ import { Chip } from "@mui/material";
 import AddIcon from "@mui/icons-material/Add";
 
 export const ProjectsPage: React.FC<ProjectsPageProps> = () => {
+  const handleCreateClick = () => {
+    alert("create project modal");
+  };
+
   return (
     <PageLayout sidebarSection={Section.Projects}>
-      <ProjectGrid showStars title="Проекты" projects={SomeProjects}>
+      <ProjectGrid
+        paddingTop="12px"
+        showStars
+        title="Проекты"
+        projects={SomeProjects}
+      >
         <Chip
           icon={<AddIcon />}
           label="СОЗДАТЬ"
           color="primary"
-          onClick={() => {}}
+          onClick={handleCreateClick}
         />
       </ProjectGrid>
     </PageLayout>

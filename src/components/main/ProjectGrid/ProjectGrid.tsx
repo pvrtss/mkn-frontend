@@ -9,6 +9,7 @@ import {
   ProjectGridWrap,
 } from "./ProjectGrid.style";
 import { ProjectCard } from "../ProjectCard";
+import { SomeFavouriteProjects } from "../../../mocks";
 
 export const ProjectGrid: React.FC<PropsWithChildren<ProjectGridProps>> = ({
   title,
@@ -16,9 +17,14 @@ export const ProjectGrid: React.FC<PropsWithChildren<ProjectGridProps>> = ({
   children,
   showDate,
   showStars,
+  paddingTop,
 }) => {
+  // TODO: remove mock
+  const checkFavourite = (pid: string) =>
+    SomeFavouriteProjects.some((p) => p.id === pid);
+
   return (
-    <ProjectGridWrap>
+    <ProjectGridWrap paddingTop={paddingTop}>
       <ProjectGridHeader>
         <ProjectGridTitle>{title}</ProjectGridTitle>
 
@@ -32,6 +38,7 @@ export const ProjectGrid: React.FC<PropsWithChildren<ProjectGridProps>> = ({
               project={p}
               showDate={showDate}
               showStars={showStars}
+              isFavourite={checkFavourite(p.id ? p.id : "")}
             />
           ))}
         </ProjectGridPlacer>

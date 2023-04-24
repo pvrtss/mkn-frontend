@@ -35,7 +35,7 @@ export const SomeProjects: ds_Project[] = [
     color: "#9F2525",
     description:
       "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium.",
-    id: "uuid22",
+    id: "uuid21",
     last_edited: "timestamp",
     owner_id: "uuid1",
     title: "Учеба",
@@ -43,7 +43,7 @@ export const SomeProjects: ds_Project[] = [
   {
     color: "#323232",
     description: "Напоминания по рабочим вопросам, так сказать.",
-    id: "uuid21",
+    id: "uuid22",
     last_edited: "timestamp",
     owner_id: "uuid2",
     title: "Работа",
@@ -60,7 +60,7 @@ export const SomeProjects: ds_Project[] = [
     color: "#9F2525",
     description:
       "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium.",
-    id: "uuid22",
+    id: "uuid24",
     last_edited: "timestamp",
     owner_id: "uuid1",
     title: "Учеба",
@@ -68,7 +68,7 @@ export const SomeProjects: ds_Project[] = [
   {
     color: "#323232",
     description: "Напоминания по рабочим вопросам, так сказать.",
-    id: "uuid21",
+    id: "uuid25",
     last_edited: "timestamp",
     owner_id: "uuid2",
     title: "Работа",
@@ -76,7 +76,35 @@ export const SomeProjects: ds_Project[] = [
   {
     color: "#2558DB",
     description: "Вполне приличное",
+    id: "uuid26",
+    last_edited: "timestamp",
+    owner_id: "uuid3",
+    title: "Личное",
+  },
+];
+
+export const SomeFavouriteProjects: ds_Project[] = [
+  {
+    color: "#9F2525",
+    description:
+      "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium.",
+    id: "uuid21",
+    last_edited: "timestamp",
+    owner_id: "uuid1",
+    title: "Учеба",
+  },
+  {
+    color: "#323232",
+    description: "Напоминания по рабочим вопросам, так сказать.",
     id: "uuid23",
+    last_edited: "timestamp",
+    owner_id: "uuid2",
+    title: "Работа",
+  },
+  {
+    color: "#2558DB",
+    description: "Вполне приличное",
+    id: "uuid25",
     last_edited: "timestamp",
     owner_id: "uuid3",
     title: "Личное",

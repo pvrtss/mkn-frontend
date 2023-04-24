@@ -1,7 +1,9 @@
 import styled from "styled-components";
+import { ProjectGridWrapProps } from "./ProjectGrid.types";
 
-export const ProjectGridWrap = styled.div`
-  padding: 60px;
+export const ProjectGridWrap = styled.div<ProjectGridWrapProps>`
+  padding: ${(props) =>
+    props.paddingTop ? props.paddingTop + " 60px 60px 60px" : "60px"};
 `;
 
 export const ProjectGridHeader = styled.div`

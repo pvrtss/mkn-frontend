@@ -5,4 +5,9 @@ export type ProjectGridProps = {
   title: string;
   showDate?: boolean;
   showStars?: boolean;
+  paddingTop?: string;
+};
+
+export type ProjectGridWrapProps = {
+  paddingTop?: string;
 };
