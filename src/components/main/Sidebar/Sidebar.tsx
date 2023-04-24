@@ -17,7 +17,7 @@ export const Sidebar: React.FC<SidebarProps> = ({ selectedSection }) => {
 
   const handleClick = (clickedSection: Section) => {
     if (selectedSection !== clickedSection) {
-      alert(getSidebarSectionPath(clickedSection));
+      navigate(getSidebarSectionPath(clickedSection));
     }
   };
 

@@ -11,6 +11,8 @@ import { HomePage } from "./pages/HomePage";
 import { getBasename } from "./utils/getBasename";
 import { createTheme, ThemeProvider } from "@mui/material";
 import { Dashboard } from "./pages/Dashboard";
+import { ProjectsPage } from "./pages/ProjectsPage";
+import { PageNotFound } from "./pages/PageNotFound";
 
 const darkTheme = createTheme({
   palette: {
@@ -29,6 +31,8 @@ function App() {
         <Route path="login" element={<AuthPage login />} />
         <Route path="signup" element={<AuthPage login={false} />} />
         <Route path="dashboard" element={<Dashboard />} />
+        <Route path="projects" element={<ProjectsPage />} />
+        <Route path="*" element={<PageNotFound />} />
       </Route>
     )
   );
