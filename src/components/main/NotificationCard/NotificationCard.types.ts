@@ -1,9 +1,9 @@
 import { ds_Notification } from "../../../api/generated";
 
-export type SmallNotficationCardProps = {
+export type NotificationCardProps = {
   notification: ds_Notification;
 };
 
-export type SmallCardSectionProps = {
-  delim?: boolean;
+export type StatusBarTitleProps = {
+  color?: string;
 };

@@ -18,7 +18,7 @@ export const UpcomingNotifications: React.FC<UpcomingNotificationsProps> = ({
           {notifications.map((n, key) => (
             <SmallNotficationCard
               key={key}
-              notifcation={n}
+              notification={n}
             ></SmallNotficationCard>
           ))}
         </UCNotificationsList>

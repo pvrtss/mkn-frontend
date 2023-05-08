@@ -12,26 +12,26 @@ import {
 import { Chip } from "@mui/material";
 
 export const SmallNotficationCard: React.FC<SmallNotficationCardProps> = ({
-  notifcation,
+  notification,
 }) => {
   const onNotificationClick = () => {
-    alert("link to id:" + notifcation.id);
+    alert("link to id:" + notification.id);
   };
   const onSectionClick = (e: React.MouseEvent) => {
     e.preventDefault();
     e.stopPropagation();
-    alert("link to section:" + notifcation.section_id);
+    alert("link to section:" + notification.section_id);
   };
   const onProjectClick = (e: React.MouseEvent) => {
     e.preventDefault();
     e.stopPropagation();
-    alert("link to to project of section:" + notifcation.section_id);
+    alert("link to to project of section:" + notification.section_id);
   };
 
   return (
     <SmallCardWrap onClick={onNotificationClick}>
       <SmallCardTitle>
-        {notifcation.title ? notifcation.title : "Title"}
+        {notification.title ? notification.title : "Title"}
       </SmallCardTitle>
       <SmallCardInfo>
         <SmallCardProject onClick={(e) => onProjectClick(e)}>
@@ -39,11 +39,11 @@ export const SmallNotficationCard: React.FC<SmallNotficationCardProps> = ({
         </SmallCardProject>
         <SmallCardSection delim>{" / "}</SmallCardSection>
         <SmallCardSection onClick={(e) => onSectionClick(e)}>
-          {notifcation.section_id}
+          {notification.section_id}
         </SmallCardSection>
       </SmallCardInfo>
       <ChipWrap>
-        <Chip label={notifcation.deadline} color="primary" />
+        <Chip label={notification.deadline} color="primary" />
       </ChipWrap>
     </SmallCardWrap>
   );

@@ -29,6 +29,13 @@ export const PageTitle = styled.div`
   font-size: 32px;
 `;
 
+export const PageContentHeader = styled.div`
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: space-between;
+`;
+
 export const PageContent = styled.div`
   padding: 12px 60px 60px 60px;
 `;

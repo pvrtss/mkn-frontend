@@ -110,3 +110,74 @@ export const SomeFavouriteProjects: ds_Project[] = [
     title: "Личное",
   },
 ];
+
+export const NotificationsMock: ds_Notification[] = [
+  {
+    deadline: "31 мар., 18:00",
+    description:
+      "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium.",
+    error_status: 0,
+    id: "uuid1",
+    section_id: "uuid1",
+    status: "scheduled",
+    title: "Сделать реферат по истории",
+  },
+  {
+    deadline: "31 мар., 18:00",
+    description: "Реферат на тему дауби",
+    error_status: 0,
+    id: "uuid2",
+    section_id: "uuid1",
+    status: "delivered",
+    title: "Сдать документацию",
+  },
+
+  {
+    deadline: "31 мар., 18:00",
+    description: "Реферат на тему дауби",
+    error_status: 0,
+    id: "uuid3",
+    section_id: "uuid1",
+    status: "undelivered",
+    title: "Дауби",
+  },
+  {
+    deadline: "31 мар., 18:00",
+    description: "Реферат на тему дауби",
+    error_status: 0,
+    id: "uuid4",
+    section_id: "uuid1",
+    status: "delivered",
+    title: "Сделать реферат по истории",
+  },
+  {
+    deadline: "31 мар., 18:00",
+    description: "Реферат на тему дауби",
+    error_status: 0,
+    id: "uuid5",
+    section_id: "uuid2",
+    status: "delivered",
+    title: "Сделать реферат по истории",
+  },
+];
+
+export const SectionsMock = [
+  {
+    color: "#DB2525",
+    id: "uuid1",
+    project_id: "uuid1",
+    title: "СТ",
+  },
+  {
+    color: "#2558DB",
+    id: "uuid2",
+    project_id: "uuid1",
+    title: "ТМО",
+  },
+  {
+    color: "#25DB63",
+    id: "uuid3",
+    project_id: "uuid1",
+    title: "Философия",
+  },
+];

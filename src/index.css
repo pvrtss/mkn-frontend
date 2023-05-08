@@ -1,3 +1,7 @@
+:root {
+  --toastify-color-progress-dark: #90caf9;
+}
+
 body {
   font-family: "Roboto", sans-serif;
   color: white;

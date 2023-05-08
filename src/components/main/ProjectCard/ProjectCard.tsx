@@ -16,6 +16,7 @@ import {
 import StarIcon from "@mui/icons-material/Star";
 import { IconButton } from "@mui/material";
 import { boolean } from "zod";
+import { useNavigate } from "react-router-dom";
 
 export const ProjectCard: React.FC<ProjectCardProps> = ({
   project,
@@ -28,6 +29,7 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({
     id: "uuid1",
     username: "pvrts",
   };
+  const navigate = useNavigate();
   const [favourite, setFavourite] = useState<boolean>(
     isFavourite ? isFavourite : false
   );
@@ -38,7 +40,7 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({
     setFavourite((p) => !p);
   };
   const handleProjectClick = () => {
-    alert("link => (pid: " + project.id + ")");
+    navigate("/projects/" + project.id);
   };
 
   return (
