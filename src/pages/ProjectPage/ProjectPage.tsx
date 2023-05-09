@@ -9,15 +9,20 @@ import {
 } from "../../components/common/PageLayout/PageLayout.style";
 import { Section } from "../../components/main/Sidebar/Sidebar.types";
 import { SectionsMock, SomeProjects } from "../../mocks";
-import { ProjectButtons, SectionsWrap } from "./ProjectPage.style";
+import {
+  NoSectionsWrap,
+  ProjectButtons,
+  SectionsWrap,
+} from "./ProjectPage.style";
 import { Chip, IconButton } from "@mui/material";
 import AddIcon from "@mui/icons-material/Add";
 import SettingsIcon from "@mui/icons-material/Settings";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { toast } from "react-toastify";
 import { SectionDropdown } from "../../components/main/SectionDropdown";
 
 export const ProjectPage: React.FC<ProjectPageProps> = () => {
+  const navigate = useNavigate();
   const params = useParams();
   // TODO: remove mock
   const project =
@@ -26,10 +31,11 @@ export const ProjectPage: React.FC<ProjectPageProps> = () => {
     alert("create section modal");
   };
   const handleSettingsClick = () => {
-    toast("настройки");
+    navigate("settings");
   };
 
   const sections = SectionsMock;
+  // const sections: any[] = [];
 
   return (
     <PageLayout sidebarSection={Section.None}>
@@ -53,9 +59,11 @@ export const ProjectPage: React.FC<ProjectPageProps> = () => {
           </ProjectButtons>
         </PageContentHeader>
         <SectionsWrap>
-          {sections.map((s, key) => (
-            <SectionDropdown section={s} key={key} />
-          ))}
+          {sections.length ? (
+            sections.map((s, key) => <SectionDropdown section={s} key={key} />)
+          ) : (
+            <NoSectionsWrap>Нет секций</NoSectionsWrap>
+          )}
         </SectionsWrap>
       </PageContent>
     </PageLayout>

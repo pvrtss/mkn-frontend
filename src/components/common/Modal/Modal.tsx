@@ -11,9 +11,10 @@ export const Modal: React.FC<ModalProps> = ({
   onClose,
   title,
   buttonLabel,
+  onButtonClick,
 }) => {
-  const onButtonClick = (e: React.MouseEvent) => {
-    alert("button click action");
+  const handleButtonClick = (e: React.MouseEvent) => {
+    onButtonClick(e);
     onClose(e);
   };
   return (
@@ -34,7 +35,7 @@ export const Modal: React.FC<ModalProps> = ({
           <Button
             sx={{ position: "absolute", bottom: "50px", right: "50px" }}
             variant="contained"
-            onClick={onButtonClick}
+            onClick={handleButtonClick}
           >
             {buttonLabel}
           </Button>

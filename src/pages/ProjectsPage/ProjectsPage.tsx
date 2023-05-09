@@ -8,8 +8,8 @@ import { Chip, TextField } from "@mui/material";
 import AddIcon from "@mui/icons-material/Add";
 import { Modal } from "../../components/common/Modal";
 import { TextFieldSx } from "../../components/common/TextField.styles";
-import { SliderPicker } from "react-color";
-import { Inputs, PickerContainer, PickerHelper } from "./ProjectsPage.style";
+import { Inputs } from "./ProjectsPage.style";
+import { ColorPicker } from "../../components/common/ColorPicker";
 
 export const ProjectsPage = () => {
   const [showModal, setShowModal] = useState<boolean>(false);
@@ -48,6 +48,9 @@ export const ProjectsPage = () => {
           title="Создать проект"
           buttonLabel="СОЗДАТЬ"
           onClose={onCloseModal}
+          onButtonClick={() => {
+            alert("create project action");
+          }}
         >
           <Inputs>
             <TextField
@@ -70,11 +73,12 @@ export const ProjectsPage = () => {
               multiline
               rows={4}
             />
-            <PickerHelper marginTop="24px">Выберите цвет:</PickerHelper>
-            <PickerContainer>
-              <SliderPicker color={color} onChange={handleColorChange} />
-            </PickerContainer>
-            <PickerHelper>{color}</PickerHelper>
+            <ColorPicker
+              mt={"24px"}
+              initialColor="#fff"
+              onChange={handleColorChange}
+              title="Выберите цвет"
+            />
           </Inputs>
         </Modal>
       )}

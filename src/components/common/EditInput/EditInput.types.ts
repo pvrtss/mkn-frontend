@@ -1,7 +1,12 @@
 import { SxProps, Theme } from "@mui/material";
 
+export type EditInputOnSaveHandler = (
+  value: string,
+  e: React.MouseEvent
+) => void;
+
 export type EditInputProps = {
-  onSave: React.MouseEventHandler;
+  onSave: EditInputOnSaveHandler;
   label: string;
   defaultValue: string;
   multiline?: boolean;

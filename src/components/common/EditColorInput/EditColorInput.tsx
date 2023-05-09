@@ -1,23 +1,25 @@
 import React, { useState } from "react";
 
-import { EditInputProps } from "./EditInput.types";
-import { EditInputWrap } from "./EditInput.style";
-import { IconButton, TextField } from "@mui/material";
-import { TextFieldSx } from "../TextField.styles";
+import { EditColorInputProps } from "./EditColorInput.types";
+import { EditInputWrap } from "../EditInput/EditInput.style";
+import { ColorPicker } from "../ColorPicker";
+import { IconButton } from "@mui/material";
 import CheckIcon from "@mui/icons-material/Check";
 import CloseIcon from "@mui/icons-material/Close";
 import EditIcon from "@mui/icons-material/Edit";
 
-export const EditInput: React.FC<EditInputProps> = ({
+export const EditColorInput: React.FC<EditColorInputProps> = ({
+  initialColor,
   onSave,
-  label,
-  defaultValue,
-  multiline,
-  sx,
   mt,
 }) => {
+  const [color, setColor] = useState<string>(initialColor);
   const [beingEdited, setBeingEdited] = useState<boolean>(false);
-  const [value, setValue] = useState<string>(defaultValue);
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  const handleColorChange = (passedColor: any) => {
+    setColor(passedColor);
+    //alert(color);
+  };
 
   const handleEditClick = () => {
     setBeingEdited(true);
@@ -27,25 +29,19 @@ export const EditInput: React.FC<EditInputProps> = ({
     setBeingEdited(false);
   };
 
-  const handleSave = (e: React.MouseEvent) => {
-    if (value !== defaultValue) onSave(value, e);
+  const handleSave = () => {
+    if (color !== initialColor) onSave(color);
     handleCancelClick();
   };
+
   return (
     <EditInputWrap mt={mt}>
-      <TextField
-        margin="none"
-        sx={sx ? { ...sx, ...TextFieldSx } : { ...TextFieldSx }}
-        variant="standard"
-        fullWidth
-        multiline={multiline}
-        minRows={multiline ? 3 : undefined}
+      <ColorPicker
+        initialColor={initialColor}
+        onChange={handleColorChange}
         disabled={!beingEdited}
-        label={label}
-        value={value}
-        onChange={(e) => setValue(e.target.value)}
+        title="Цвет"
       />
-
       {beingEdited ? (
         <>
           <IconButton onClick={handleSave} color="primary" aria-label="save">

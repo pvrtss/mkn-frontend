@@ -16,6 +16,7 @@ import { PageNotFound } from "./pages/PageNotFound";
 import { FavouritesPage } from "./pages/FavouritesPage";
 import { ProfilePage } from "./pages/ProfilePage";
 import { ProjectPage } from "./pages/ProjectPage";
+import { ProjectSettingsPage } from "./pages/ProjectSettingsPage";
 
 const darkTheme = createTheme({
   palette: {
@@ -37,6 +38,10 @@ function App() {
         <Route path="dashboard" element={<Dashboard />} />
         <Route path="projects" element={<ProjectsPage />} />
         <Route path="projects/:uuid" element={<ProjectPage />} />
+        <Route
+          path="projects/:uuid/settings"
+          element={<ProjectSettingsPage />}
+        />
         <Route path="favourites" element={<FavouritesPage />} />
         <Route path="profile" element={<ProfilePage />} />
         <Route path="*" element={<PageNotFound />} />

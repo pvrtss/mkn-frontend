@@ -1,4 +1,9 @@
-import { ds_Notification, ds_Project } from "./api/generated";
+import {
+  ds_Notification,
+  ds_Project,
+  ds_Section,
+  ds_User,
+} from "./api/generated";
 
 export const SomeNotificationsMock: ds_Notification[] = [
   {
@@ -161,7 +166,7 @@ export const NotificationsMock: ds_Notification[] = [
   },
 ];
 
-export const SectionsMock = [
+export const SectionsMock: ds_Section[] = [
   {
     color: "#DB2525",
     id: "uuid1",
@@ -179,5 +184,68 @@ export const SectionsMock = [
     id: "uuid3",
     project_id: "uuid1",
     title: "Философия",
+  },
+];
+
+export const CollaborantsMock: ds_User[] = [
+  {
+    email: "pvrtss@gmail.com",
+    id: "uuid1",
+    is_manager: false,
+    username: "pvrts",
+  },
+  {
+    email: "sanyazay@gmail.comdasdasddasdasdas",
+    id: "uuid2",
+    is_manager: false,
+    username: "sanyazay",
+  },
+  {
+    email: "vvjkee@gmail.com",
+    id: "uuid3",
+    is_manager: false,
+    username: "vvjkee",
+  },
+  {
+    email: "shdav@gmail.com",
+    id: "uuid4",
+    is_manager: false,
+    username: "shdav",
+  },
+  {
+    email: "daubi@gmail.com",
+    id: "uuid5",
+    is_manager: false,
+    username: "daubi",
+  },
+  {
+    email: "pvrtss@gmail.com",
+    id: "uuid1",
+    is_manager: false,
+    username: "pvrts",
+  },
+  {
+    email: "sanyazay@gmail.comdasdasddasdasdas",
+    id: "uuid2",
+    is_manager: false,
+    username: "sanyazay",
+  },
+  {
+    email: "vvjkee@gmail.com",
+    id: "uuid3",
+    is_manager: false,
+    username: "vvjkee",
+  },
+  {
+    email: "shdav@gmail.com",
+    id: "uuid4",
+    is_manager: false,
+    username: "shdav",
+  },
+  {
+    email: "daubi@gmail.com",
+    id: "uuid5",
+    is_manager: false,
+    username: "daubi",
   },
 ];

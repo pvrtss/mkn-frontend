@@ -12,3 +12,12 @@ export const SectionsWrap = styled.div`
   margin-top: 28px;
   gap: 32px;
 `;
+
+export const NoSectionsWrap = styled.div`
+  height: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #333333;
+  font-size: 24px;
+`;

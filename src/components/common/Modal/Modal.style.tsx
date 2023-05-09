@@ -9,7 +9,7 @@ export const ModalWrap = styled.div`
   left: 0px;
   width: 100%;
   height: 100%;
-  z-index: 1000;
+  z-index: 2000;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -25,7 +25,7 @@ export const Fader = styled.div`
   left: 0;
   width: 100vw;
   height: 100vh;
-  z-index: 500;
+  z-index: 1999;
 `;
 
 export const ModalContent = styled.div`
@@ -38,7 +38,7 @@ export const ModalContent = styled.div`
   transition: backdrop-filter 0.2s;
   display: flex;
   flex-direction: column;
-  min-height: 400px;
+  min-height: 250px;
 `;
 
 export const ModalTitle = styled.span`

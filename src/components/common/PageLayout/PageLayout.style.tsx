@@ -38,4 +38,5 @@ export const PageContentHeader = styled.div`
 
 export const PageContent = styled.div`
   padding: 12px 60px 60px 60px;
+  min-height: 100%;
 `;

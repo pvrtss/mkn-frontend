@@ -13,7 +13,7 @@ export const ProjectCardWrap = styled.div<ProjectCardWrapProps>`
   :hover {
     box-shadow: ${(props) => "0px 0px 8px 4px " + props.color + "20"};
   }
-  max-height: 320px;
+  max-height: 370px;
   transition: 0.2s box-shadow;
 `;
 

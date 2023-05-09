@@ -5,7 +5,7 @@ export const NotificationWrap = styled.div`
   background: #131313;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   border-radius: 12px;
-  max-height: 200px;
+  max-height: 250px;
   padding: 22px;
   box-sizing: border-box;
   display: flex;
