@@ -2,6 +2,6 @@
 /* tslint:disable */
 /* eslint-disable */
 
-export type internal_app_errorResponse = {
-  message?: string;
+export type app_errorResponse = {
+    message?: string;
 };

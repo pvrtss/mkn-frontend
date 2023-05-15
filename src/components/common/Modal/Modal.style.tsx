@@ -1,15 +1,16 @@
 import styled, { keyframes } from "styled-components";
 import { fadeIn } from "react-animations";
+import { OnTopProps } from "./Modal.types";
 
 const fadeInAnimation = keyframes`${fadeIn}`;
 
-export const ModalWrap = styled.div`
+export const ModalWrap = styled.div<OnTopProps>`
   position: absolute;
   top: 0px;
   left: 0px;
   width: 100%;
   height: 100%;
-  z-index: 2000;
+  z-index: ${(props) => (props.alwaysOnTop ? "2000" : "1000")};
   display: flex;
   justify-content: center;
   align-items: center;
@@ -17,15 +18,15 @@ export const ModalWrap = styled.div`
   animation: 0.2s ${fadeInAnimation};
 `;
 
-export const Fader = styled.div`
+export const Fader = styled.div<OnTopProps>`
   background-color: #000000;
   opacity: 0.6;
   position: absolute;
   top: 0;
   left: 0;
-  width: 100vw;
+  width: 100%;
   height: 100vh;
-  z-index: 1999;
+  z-index: ${(props) => (props.alwaysOnTop ? "1999" : "999")};
 `;
 
 export const ModalContent = styled.div`

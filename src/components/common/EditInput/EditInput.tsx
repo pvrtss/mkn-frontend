@@ -24,12 +24,13 @@ export const EditInput: React.FC<EditInputProps> = ({
   };
 
   const handleCancelClick = () => {
+    setValue(defaultValue);
     setBeingEdited(false);
   };
 
   const handleSave = (e: React.MouseEvent) => {
     if (value !== defaultValue) onSave(value, e);
-    handleCancelClick();
+    setBeingEdited(false);
   };
   return (
     <EditInputWrap mt={mt}>

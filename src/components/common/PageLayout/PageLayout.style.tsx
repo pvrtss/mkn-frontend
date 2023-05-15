@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import { ReactComponent as LogoSVG } from "../../../assets/mkn-logo.svg";
+import { PageContentProps } from "./PageLayout.types";
 
 export const PageWrap = styled.div`
   background: #0c0c0c;
@@ -36,7 +37,7 @@ export const PageContentHeader = styled.div`
   justify-content: space-between;
 `;
 
-export const PageContent = styled.div`
+export const PageContent = styled.div<PageContentProps>`
   padding: 12px 60px 60px 60px;
-  min-height: 100%;
+  min-height: ${(props) => (props.mh ? props.mh : "none")};
 `;

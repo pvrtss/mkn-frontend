@@ -26,12 +26,13 @@ export const EditColorInput: React.FC<EditColorInputProps> = ({
   };
 
   const handleCancelClick = () => {
+    setColor(initialColor);
     setBeingEdited(false);
   };
 
   const handleSave = () => {
     if (color !== initialColor) onSave(color);
-    handleCancelClick();
+    setBeingEdited(false);
   };
 
   return (

@@ -6,4 +6,9 @@ export type ModalProps = {
   onButtonClick: React.MouseEventHandler;
   title: string;
   buttonLabel: string;
+  alwaysOnTop?: boolean;
 };
+
+export interface OnTopProps {
+  alwaysOnTop?: boolean;
+}

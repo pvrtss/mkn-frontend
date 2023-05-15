@@ -8,6 +8,10 @@ import "react-toastify/dist/ReactToastify.css";
 ReactDOM.createRoot(document.getElementById("root") as HTMLElement).render(
   <React.StrictMode>
     <App />
-    <ToastContainer theme="dark" />
+    <ToastContainer
+      theme="dark"
+      style={{ fontFamily: "inherit" }}
+      autoClose={30000}
+    />
   </React.StrictMode>
 );

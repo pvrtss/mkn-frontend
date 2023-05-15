@@ -12,16 +12,16 @@ export const Modal: React.FC<ModalProps> = ({
   title,
   buttonLabel,
   onButtonClick,
+  alwaysOnTop,
 }) => {
   const handleButtonClick = (e: React.MouseEvent) => {
     onButtonClick(e);
-    onClose(e);
   };
   return (
     <BodyPortal>
-      <Fader />
+      <Fader alwaysOnTop={alwaysOnTop} />
 
-      <ModalWrap>
+      <ModalWrap alwaysOnTop={alwaysOnTop}>
         <ModalContent>
           <ModalTitle>{title}</ModalTitle>
           {children}

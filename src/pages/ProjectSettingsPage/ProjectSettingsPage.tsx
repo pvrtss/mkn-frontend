@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 
 import { ProjectSettingsPageProps } from "./ProjectSettingsPage.types";
 import { PageLayout } from "../../components/common/PageLayout";
@@ -37,6 +37,7 @@ import { Modal } from "../../components/common/Modal";
 import { Inputs } from "../ProjectsPage/ProjectsPage.style";
 import { ColorPicker } from "../../components/common/ColorPicker";
 import { TextFieldSx } from "../../components/common/TextField.styles";
+import { toast } from "react-toastify";
 
 export const ProjectSettingsPage: React.FC<ProjectSettingsPageProps> = () => {
   const params = useParams();
@@ -45,6 +46,9 @@ export const ProjectSettingsPage: React.FC<ProjectSettingsPageProps> = () => {
     SomeProjects.find((p) => p.id === params.uuid) || SomeProjects[0];
 
   const [showDeleteModal, setShowDeleteModal] = useState<boolean>(false);
+  const [toAddLogin, setToAddLogin] = useState<string>("");
+  const [selectedCollaborant, setSelectedCollaborant] =
+    useState<ds_User | null>(null);
   const [showAddModal, setShowAddModal] = useState<boolean>(false);
   const [showDeleteCollaborantModal, setShowDeleteCollaborantModal] =
     useState<boolean>(false);
@@ -68,7 +72,7 @@ export const ProjectSettingsPage: React.FC<ProjectSettingsPageProps> = () => {
     setAnchorEl(null);
   };
   const onSaveClick = () => {
-    let new_items: string[] = [];
+    const new_items: string[] = [];
     let res = "";
     if (newTitle !== project.title) new_items.push(newTitle);
     if (newDescription !== project.description) new_items.push(newDescription);
@@ -81,13 +85,14 @@ export const ProjectSettingsPage: React.FC<ProjectSettingsPageProps> = () => {
   const handleDeleteClick = (e: React.MouseEvent, c: ds_User) => {
     e.preventDefault();
     e.stopPropagation();
+    setSelectedCollaborant(c);
     setShowDeleteCollaborantModal(true);
   };
   const handleProjectTitleClick = () => {
     navigate("/projects/" + params.uuid);
   };
   const handleAddClick = () => {
-    alert("add collaborant modal");
+    setShowAddModal(true);
   };
   const handleProjectDelete = () => {
     setShowDeleteModal(true);
@@ -105,7 +110,7 @@ export const ProjectSettingsPage: React.FC<ProjectSettingsPageProps> = () => {
 
   return (
     <PageLayout sidebarSection={Section.None}>
-      <PageContent>
+      <PageContent mh="100%">
         <PageContentHeader>
           <PageTitle>
             Настройки
@@ -234,8 +239,9 @@ export const ProjectSettingsPage: React.FC<ProjectSettingsPageProps> = () => {
       )}
       {showDeleteCollaborantModal && (
         <Modal
-          title="Удалить участника?"
+          title={"Удалить участника " + selectedCollaborant?.username + "?"}
           buttonLabel="ОК"
+          alwaysOnTop
           onClose={() => {
             setShowDeleteCollaborantModal(false);
           }}
@@ -253,6 +259,36 @@ export const ProjectSettingsPage: React.FC<ProjectSettingsPageProps> = () => {
           >
             ОТМЕНА
           </Button>
+        </Modal>
+      )}
+      {showAddModal && (
+        <Modal
+          title={"Добавить участника"}
+          buttonLabel="ДОБАВИТЬ"
+          onClose={() => {
+            setShowAddModal(false);
+          }}
+          onButtonClick={() => {
+            if (toAddLogin !== "") {
+              alert("add collaborant: " + toAddLogin);
+            } else {
+              toast.error("Логин не может быть пустым");
+            }
+          }}
+        >
+          <TextField
+            margin="none"
+            sx={{ mt: "24px", width: "60%", ...TextFieldSx }}
+            required
+            fullWidth
+            value={toAddLogin}
+            onChange={(e) => {
+              setToAddLogin(e.target.value);
+            }}
+            id="name"
+            label="Логин пользователя"
+            autoFocus
+          />
         </Modal>
       )}
     </PageLayout>

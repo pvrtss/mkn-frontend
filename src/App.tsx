@@ -17,6 +17,9 @@ import { FavouritesPage } from "./pages/FavouritesPage";
 import { ProfilePage } from "./pages/ProfilePage";
 import { ProjectPage } from "./pages/ProjectPage";
 import { ProjectSettingsPage } from "./pages/ProjectSettingsPage";
+import { LocalizationProvider } from "@mui/x-date-pickers";
+import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
+import "dayjs/locale/ru";
 
 const darkTheme = createTheme({
   palette: {
@@ -50,7 +53,9 @@ function App() {
   );
   return (
     <ThemeProvider theme={darkTheme}>
-      <RouterProvider router={router} />
+      <LocalizationProvider dateAdapter={AdapterDayjs} adapterLocale="ru">
+        <RouterProvider router={router} />
+      </LocalizationProvider>
     </ThemeProvider>
   );
 }

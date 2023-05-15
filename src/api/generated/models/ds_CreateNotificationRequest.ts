@@ -2,12 +2,9 @@
 /* tslint:disable */
 /* eslint-disable */
 
-export type ds_Notification = {
+export type ds_CreateNotificationRequest = {
     deadline?: string;
     description?: string;
-    error_status?: number;
-    id?: string;
-    section_id?: string;
     status?: string;
     title?: string;
 };

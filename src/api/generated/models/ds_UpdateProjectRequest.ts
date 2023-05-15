@@ -2,9 +2,8 @@
 /* tslint:disable */
 /* eslint-disable */
 
-export type ds_Section = {
+export type ds_UpdateProjectRequest = {
     color?: string;
-    id?: string;
-    project_id?: string;
+    description?: string;
     title?: string;
 };

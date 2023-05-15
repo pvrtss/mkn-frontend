@@ -1,5 +1,6 @@
 :root {
   --toastify-color-progress-dark: #90caf9;
+  --toastify-font-family: "Roboto", sans-serif !important;
 }
 
 body {

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 
 import { NotificationCardProps } from "./NotificationCard.types";
 import {
@@ -12,25 +12,71 @@ import {
   StatusBarTitle,
 } from "./NotificationCard.style";
 import EditIcon from "@mui/icons-material/Edit";
-import { Chip, IconButton } from "@mui/material";
+import { Chip, IconButton, TextField } from "@mui/material";
 import DeleteOutlineIcon from "@mui/icons-material/DeleteOutline";
 import CheckCircleIcon from "@mui/icons-material/CheckCircle";
 import ErrorIcon from "@mui/icons-material/Error";
 import RestoreIcon from "@mui/icons-material/Restore";
+import { Modal } from "../../common/Modal";
+import { title } from "process";
+import { Inputs } from "../../../pages/ProjectsPage/ProjectsPage.style";
+import { TextFieldSx } from "../../common/TextField.styles";
+import { EditInput } from "../../common/EditInput";
 
 export const NotificationCard: React.FC<NotificationCardProps> = ({
   notification,
 }) => {
-  const handleEditClick = () => {
-    alert("edit notification modal");
+  const [showResendNotificationModal, setShowResendNotificationModal] =
+    useState<boolean>(false);
+  const [showEditNotificationModal, setShowEditNotificationModal] =
+    useState<boolean>(false);
+  const [showDeleteNotificationModal, setShowDeleteNotificationModal] =
+    useState<boolean>(false);
+
+  const [newTitle, setNewTitle] = useState<string>(
+    notification.title ? notification.title : ""
+  );
+  const [newDescription, setNewDescription] = useState<string>(
+    notification.description ? notification.description : ""
+  );
+  const [newDeadline, setDeadline] = useState<string>(
+    notification.deadline ? notification.deadline : ""
+  );
+
+  const handleEditSubmit = () => {
+    const new_items: string[] = [];
+    let res = "";
+    if (newTitle !== notification.title) new_items.push(newTitle);
+    if (newDescription !== notification.description)
+      new_items.push(newDescription);
+    if (newDeadline !== notification.deadline) new_items.push(newDeadline);
+    for (const i of new_items) {
+      res = res + i + "\n";
+    }
+    if (new_items.length) alert(res);
+  };
+  const handleEditClick = (title: string) => {
+    setNewTitle(title);
+  };
+
+  const onCloseEditModal = () => {
+    setShowEditNotificationModal(false);
   };
 
   const handleDeleteClick = () => {
     alert("delete notifiaction alert");
   };
 
+  const onCloseDeleteModal = () => {
+    setShowDeleteNotificationModal(false);
+  };
+
   const handleResendClick = () => {
     alert("resend notification modal");
+  };
+
+  const onCloseResendModal = () => {
+    setShowResendNotificationModal(false);
   };
   return (
     <NotificationWrap>
@@ -40,7 +86,7 @@ export const NotificationCard: React.FC<NotificationCardProps> = ({
           <NotificationHeaderButtons>
             {notification.status === "scheduled" && (
               <IconButton
-                onClick={handleEditClick}
+                onClick={() => setShowEditNotificationModal(true)}
                 color="default"
                 size="small"
                 aria-label="edit"
@@ -105,6 +151,36 @@ export const NotificationCard: React.FC<NotificationCardProps> = ({
           </StatusBarTitle>
         </NotificationStatusBar>
       </NotificationFooter>
+      {showEditNotificationModal && (
+        <Modal
+          title={"Редактировать напоминание"}
+          buttonLabel="СОХРАНИТЬ"
+          onClose={onCloseEditModal}
+          onButtonClick={() => {
+            handleEditSubmit();
+            onCloseEditModal();
+          }}
+        >
+          <Inputs>
+            <EditInput
+              onSave={(title: string) => setNewTitle(title)}
+              label="Название"
+              mt="32px"
+              defaultValue={notification.title ? notification.title : ""}
+            />
+            <EditInput
+              onSave={(desc: string) => setNewDescription(desc)}
+              multiline
+              label="Описание"
+              defaultValue={
+                notification.description ? notification.description : ""
+              }
+              mt="24px"
+            />
+          </Inputs>
+        </Modal>
+      )}
+      {}
     </NotificationWrap>
   );
 };
