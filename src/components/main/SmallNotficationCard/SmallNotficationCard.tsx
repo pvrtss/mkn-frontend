@@ -10,6 +10,7 @@ import {
   SmallCardWrap,
 } from "./SmallNotficationCard.style";
 import { Chip } from "@mui/material";
+import { getDeadlineString } from "../../../utils/getDeadlineString";
 
 export const SmallNotficationCard: React.FC<SmallNotficationCardProps> = ({
   notification,
@@ -43,7 +44,12 @@ export const SmallNotficationCard: React.FC<SmallNotficationCardProps> = ({
         </SmallCardSection>
       </SmallCardInfo>
       <ChipWrap>
-        <Chip label={notification.deadline} color="primary" />
+        <Chip
+          label={getDeadlineString(
+            notification.deadline ? notification.deadline : "0"
+          )}
+          color="primary"
+        />
       </ChipWrap>
     </SmallCardWrap>
   );

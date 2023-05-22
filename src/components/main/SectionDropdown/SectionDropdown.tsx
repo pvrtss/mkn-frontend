@@ -98,7 +98,7 @@ export const SectionDropdown: React.FC<SectionDropdownProps> = ({
       toast.error("Описание не может быть >250 символов");
       return;
     }
-    if (newDeadline === null || Number.isNaN(newDeadline.unix())) {
+    if (newDeadline === null || Number.isNaN(newDeadline.valueOf())) {
       toast.error("Ошибка заполнения даты");
       return;
     }
@@ -115,7 +115,7 @@ export const SectionDropdown: React.FC<SectionDropdownProps> = ({
         newDescription +
         "\n" +
         "deadline: " +
-        newDeadline?.unix()
+        newDeadline?.valueOf()
     );
     onCloseModal();
   };

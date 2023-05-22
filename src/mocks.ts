@@ -7,7 +7,7 @@ import {
 
 export const SomeNotificationsMock: ds_Notification[] = [
   {
-    deadline: "31 мар., 18:00",
+    deadline: "1684192740000",
     description: "Реферат на тему дауби",
     error_status: 0,
     id: "uuid1",
@@ -16,7 +16,7 @@ export const SomeNotificationsMock: ds_Notification[] = [
     title: "Сделать реферат по истории",
   },
   {
-    deadline: "1 апр., 12:00",
+    deadline: "1684192740000",
     description: "Реферат на тему дауби",
     error_status: 0,
     id: "uuid2",
@@ -25,7 +25,7 @@ export const SomeNotificationsMock: ds_Notification[] = [
     title: "Помыть окна",
   },
   {
-    deadline: "12 апр., 17:00",
+    deadline: "1684192740000",
     description: "Очень важная встреча",
     error_status: 0,
     id: "uuid3",
@@ -118,7 +118,7 @@ export const SomeFavouriteProjects: ds_Project[] = [
 
 export const NotificationsMock: ds_Notification[] = [
   {
-    deadline: "31 мар., 18:00",
+    deadline: "1684192740000",
     description:
       "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium.",
     error_status: 0,
@@ -128,7 +128,7 @@ export const NotificationsMock: ds_Notification[] = [
     title: "Сделать реферат по истории",
   },
   {
-    deadline: "31 мар., 18:00",
+    deadline: "1684192740000",
     description: "Реферат на тему дауби",
     error_status: 0,
     id: "uuid2",
@@ -138,7 +138,7 @@ export const NotificationsMock: ds_Notification[] = [
   },
 
   {
-    deadline: "31 мар., 18:00",
+    deadline: "1684192740000",
     description: "Реферат на тему дауби",
     error_status: 0,
     id: "uuid3",
@@ -147,7 +147,7 @@ export const NotificationsMock: ds_Notification[] = [
     title: "Дауби",
   },
   {
-    deadline: "31 мар., 18:00",
+    deadline: "1684192740000",
     description: "Реферат на тему дауби",
     error_status: 0,
     id: "uuid4",
@@ -156,7 +156,7 @@ export const NotificationsMock: ds_Notification[] = [
     title: "Сделать реферат по истории",
   },
   {
-    deadline: "31 мар., 18:00",
+    deadline: "1684192740000",
     description: "Реферат на тему дауби",
     error_status: 0,
     id: "uuid5",
@@ -191,61 +191,61 @@ export const CollaborantsMock: ds_User[] = [
   {
     email: "pvrtss@gmail.com",
     id: "uuid1",
-    is_manager: false,
+    is_manager: 0,
     username: "pvrts",
   },
   {
     email: "sanyazay@gmail.comdasdasddasdasdas",
     id: "uuid2",
-    is_manager: false,
+    is_manager: 0,
     username: "sanyazay",
   },
   {
     email: "vvjkee@gmail.com",
     id: "uuid3",
-    is_manager: false,
+    is_manager: 0,
     username: "vvjkee",
   },
   {
     email: "shdav@gmail.com",
     id: "uuid4",
-    is_manager: false,
+    is_manager: 0,
     username: "shdav",
   },
   {
     email: "daubi@gmail.com",
     id: "uuid5",
-    is_manager: false,
+    is_manager: 0,
     username: "daubi",
   },
   {
     email: "pvrtss@gmail.com",
     id: "uuid1",
-    is_manager: false,
+    is_manager: 0,
     username: "pvrts",
   },
   {
     email: "sanyazay@gmail.comdasdasddasdasdas",
     id: "uuid2",
-    is_manager: false,
+    is_manager: 0,
     username: "sanyazay",
   },
   {
     email: "vvjkee@gmail.com",
     id: "uuid3",
-    is_manager: false,
+    is_manager: 0,
     username: "vvjkee",
   },
   {
     email: "shdav@gmail.com",
     id: "uuid4",
-    is_manager: false,
+    is_manager: 0,
     username: "shdav",
   },
   {
     email: "daubi@gmail.com",
     id: "uuid5",
-    is_manager: false,
+    is_manager: 0,
     username: "daubi",
   },
 ];

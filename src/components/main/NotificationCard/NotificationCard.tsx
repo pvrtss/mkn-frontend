@@ -12,16 +12,20 @@ import {
   StatusBarTitle,
 } from "./NotificationCard.style";
 import EditIcon from "@mui/icons-material/Edit";
-import { Chip, IconButton, TextField } from "@mui/material";
+import { Button, Chip, IconButton } from "@mui/material";
 import DeleteOutlineIcon from "@mui/icons-material/DeleteOutline";
 import CheckCircleIcon from "@mui/icons-material/CheckCircle";
 import ErrorIcon from "@mui/icons-material/Error";
 import RestoreIcon from "@mui/icons-material/Restore";
 import { Modal } from "../../common/Modal";
-import { title } from "process";
 import { Inputs } from "../../../pages/ProjectsPage/ProjectsPage.style";
 import { TextFieldSx } from "../../common/TextField.styles";
 import { EditInput } from "../../common/EditInput";
+import { EditDateTimePicker } from "../../common/EditDateTimePicker";
+import { getDeadlineString } from "../../../utils/getDeadlineString";
+import { DateTimePicker } from "@mui/x-date-pickers";
+import dayjs, { Dayjs } from "dayjs";
+import { toast } from "react-toastify";
 
 export const NotificationCard: React.FC<NotificationCardProps> = ({
   notification,
@@ -39,9 +43,10 @@ export const NotificationCard: React.FC<NotificationCardProps> = ({
   const [newDescription, setNewDescription] = useState<string>(
     notification.description ? notification.description : ""
   );
-  const [newDeadline, setDeadline] = useState<string>(
+  const [newDeadline, setNewDeadline] = useState<string>(
     notification.deadline ? notification.deadline : ""
   );
+  const [resendDeadline, setResendDeadline] = useState<Dayjs | null>(dayjs());
 
   const handleEditSubmit = () => {
     const new_items: string[] = [];
@@ -55,8 +60,8 @@ export const NotificationCard: React.FC<NotificationCardProps> = ({
     }
     if (new_items.length) alert(res);
   };
-  const handleEditClick = (title: string) => {
-    setNewTitle(title);
+  const handleEditClick = () => {
+    setShowEditNotificationModal(true);
   };
 
   const onCloseEditModal = () => {
@@ -64,7 +69,7 @@ export const NotificationCard: React.FC<NotificationCardProps> = ({
   };
 
   const handleDeleteClick = () => {
-    alert("delete notifiaction alert");
+    setShowDeleteNotificationModal(true);
   };
 
   const onCloseDeleteModal = () => {
@@ -72,7 +77,21 @@ export const NotificationCard: React.FC<NotificationCardProps> = ({
   };
 
   const handleResendClick = () => {
-    alert("resend notification modal");
+    setShowResendNotificationModal(true);
+  };
+
+  const handleResendSubmit = () => {
+    if (dayjs().isAfter(resendDeadline)) {
+      toast.error("Дата и время должны быть позже текущего момента");
+      return;
+    }
+    alert("resend fetch: " + resendDeadline);
+    onCloseResendModal();
+  };
+
+  const handleDeleteSubmit = () => {
+    alert("delete notification: " + notification.id);
+    onCloseDeleteModal();
   };
 
   const onCloseResendModal = () => {
@@ -86,7 +105,7 @@ export const NotificationCard: React.FC<NotificationCardProps> = ({
           <NotificationHeaderButtons>
             {notification.status === "scheduled" && (
               <IconButton
-                onClick={() => setShowEditNotificationModal(true)}
+                onClick={handleEditClick}
                 color="default"
                 size="small"
                 aria-label="edit"
@@ -122,7 +141,12 @@ export const NotificationCard: React.FC<NotificationCardProps> = ({
         </NotificationDescription>
       </div>
       <NotificationFooter>
-        <Chip label={notification.deadline} color="primary" />
+        <Chip
+          label={getDeadlineString(
+            notification.deadline ? notification.deadline : "0"
+          )}
+          color="primary"
+        />
         <NotificationStatusBar>
           {notification.status === "undelivered" ? (
             <ErrorIcon color="error" />
@@ -169,7 +193,9 @@ export const NotificationCard: React.FC<NotificationCardProps> = ({
               defaultValue={notification.title ? notification.title : ""}
             />
             <EditInput
-              onSave={(desc: string) => setNewDescription(desc)}
+              onSave={(desc: string) => {
+                setNewDescription(desc);
+              }}
               multiline
               label="Описание"
               defaultValue={
@@ -177,10 +203,54 @@ export const NotificationCard: React.FC<NotificationCardProps> = ({
               }
               mt="24px"
             />
+            <EditDateTimePicker
+              onSave={(ts: string) => {
+                setNewDeadline(ts);
+              }}
+              defaultValue={notification.deadline ? notification.deadline : ""}
+              mt="24px"
+            />
           </Inputs>
         </Modal>
       )}
-      {}
+      {showResendNotificationModal && (
+        <Modal
+          title={"Перезапланировать напоминание"}
+          buttonLabel="СОХРАНИТЬ"
+          onClose={onCloseResendModal}
+          onButtonClick={() => {
+            handleResendSubmit();
+          }}
+        >
+          <Inputs>
+            <DateTimePicker
+              sx={{ ...TextFieldSx, mt: "24px" }}
+              label="Дата и время отправки"
+              value={resendDeadline}
+              onChange={(ts) => setResendDeadline(ts)}
+            />
+          </Inputs>
+        </Modal>
+      )}
+      {showDeleteNotificationModal && (
+        <Modal
+          title={"Удалить напоминание?"}
+          buttonLabel="ОК"
+          onClose={onCloseDeleteModal}
+          onButtonClick={handleDeleteSubmit}
+        >
+          <Button
+            onClick={() => {
+              onCloseDeleteModal();
+            }}
+            variant="outlined"
+            color="primary"
+            sx={{ position: "absolute", bottom: "50px", left: "50px" }}
+          >
+            ОТМЕНА
+          </Button>
+        </Modal>
+      )}
     </NotificationWrap>
   );
 };

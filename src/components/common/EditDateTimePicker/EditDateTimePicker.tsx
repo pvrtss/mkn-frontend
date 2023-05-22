@@ -1,53 +1,47 @@
 import React, { useState } from "react";
 
-import { EditInputProps } from "./EditInput.types";
-import { EditInputWrap } from "./EditInput.style";
+import { EditDateTimePickerProps } from "./EditDateTimePicker.types";
+import { DateTimePicker } from "@mui/x-date-pickers";
+import { EditInputWrap } from "../EditInput/EditInput.style";
 import { IconButton, TextField } from "@mui/material";
 import { TextFieldSx } from "../TextField.styles";
 import CheckIcon from "@mui/icons-material/Check";
 import CloseIcon from "@mui/icons-material/Close";
 import EditIcon from "@mui/icons-material/Edit";
+import dayjs, { Dayjs } from "dayjs";
 
-export const EditInput: React.FC<EditInputProps> = ({
-  onSave,
-  label,
-  defaultValue,
-  multiline,
-  sx,
+export const EditDateTimePicker: React.FC<EditDateTimePickerProps> = ({
   mt,
+  defaultValue,
+  onSave,
 }) => {
+  const [deadline, setDeadline] = useState<Dayjs | null>(dayjs(+defaultValue));
   const [beingEdited, setBeingEdited] = useState<boolean>(false);
-  const [value, setValue] = useState<string>(defaultValue);
-
   const handleEditClick = () => {
     setBeingEdited(true);
   };
 
-  const handleCancelClick = () => {
-    setValue(defaultValue);
+  const handleCancelClick = (e: React.MouseEvent) => {
+    setDeadline(dayjs(+defaultValue));
+    onSave(defaultValue, e);
     setBeingEdited(false);
   };
 
   const handleSave = (e: React.MouseEvent) => {
-    if (value !== defaultValue) onSave(value, e);
+    if (deadline?.valueOf() !== +defaultValue)
+      onSave(deadline === null ? "" : deadline.valueOf().toString(), e);
     setBeingEdited(false);
   };
+
   return (
     <EditInputWrap mt={mt}>
-      <TextField
-        margin="none"
-        sx={sx ? { ...sx, ...TextFieldSx } : { ...TextFieldSx }}
-        variant="standard"
-        fullWidth
-        multiline={multiline}
-        minRows={3}
-        maxRows={8}
+      <DateTimePicker
+        sx={{ ...TextFieldSx, maxWidth: "200px" }}
+        label="Дата и время отправки"
         disabled={!beingEdited}
-        label={label}
-        value={value}
-        onChange={(e) => setValue(e.target.value)}
+        value={deadline}
+        onChange={(ts) => setDeadline(ts)}
       />
-
       {beingEdited ? (
         <>
           <IconButton onClick={handleSave} color="primary" aria-label="save">
