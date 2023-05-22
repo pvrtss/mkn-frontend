@@ -4,6 +4,7 @@
 import type { ds_CreateNotificationRequest } from '../models/ds_CreateNotificationRequest';
 import type { ds_Notification } from '../models/ds_Notification';
 import type { ds_ResendNotificationRequest } from '../models/ds_ResendNotificationRequest';
+import type { ds_UpdateNotificationRequest } from '../models/ds_UpdateNotificationRequest';
 
 import type { CancelablePromise } from '../core/CancelablePromise';
 import { OpenAPI } from '../core/OpenAPI';
@@ -14,18 +15,18 @@ export class NotificationService {
     /**
      * Resend notification
      * Resend notification
-     * @param data Section information
+     * @param data Deadline info
      * @param notificationId Notification ID
      * @returns ds_Notification OK
      * @throws ApiError
      */
-    public static putProjectSectionNotificationResend(
-data: ds_ResendNotificationRequest,
-notificationId: string,
-): CancelablePromise<Array<ds_Notification>> {
+    public static putApiProjectSectionNotificationResend(
+        data: ds_ResendNotificationRequest,
+        notificationId: string,
+    ): CancelablePromise<Array<ds_Notification>> {
         return __request(OpenAPI, {
             method: 'PUT',
-            url: '/project/section/notification/resend/{notification_id}',
+            url: '/api/project/section/notification/resend/{notification_id}',
             path: {
                 'notification_id': notificationId,
             },
@@ -45,12 +46,12 @@ notificationId: string,
      * @returns ds_Notification OK
      * @throws ApiError
      */
-    public static getProjectSectionNotification(
-notificationId: string,
-): CancelablePromise<ds_Notification> {
+    public static getApiProjectSectionNotification(
+        notificationId: string,
+    ): CancelablePromise<ds_Notification> {
         return __request(OpenAPI, {
             method: 'GET',
-            url: '/project/section/notification/{notification_id}',
+            url: '/api/project/section/notification/{notification_id}',
             path: {
                 'notification_id': notificationId,
             },
@@ -66,18 +67,21 @@ notificationId: string,
      * Update notifications
      * Update information about a specific notification according to the entered parameters
      * @param notificationId Notification ID
+     * @param data Notification information
      * @returns ds_Notification OK
      * @throws ApiError
      */
-    public static putProjectSectionNotification(
-notificationId: string,
-): CancelablePromise<Array<ds_Notification>> {
+    public static putApiProjectSectionNotification(
+        notificationId: string,
+        data: ds_UpdateNotificationRequest,
+    ): CancelablePromise<Array<ds_Notification>> {
         return __request(OpenAPI, {
             method: 'PUT',
-            url: '/project/section/notification/{notification_id}',
+            url: '/api/project/section/notification/{notification_id}',
             path: {
                 'notification_id': notificationId,
             },
+            body: data,
             errors: {
                 403: `Forbidden`,
                 404: `Not Found`,
@@ -93,12 +97,12 @@ notificationId: string,
      * @returns ds_Notification OK
      * @throws ApiError
      */
-    public static deleteProjectSectionNotification(
-notificationId: string,
-): CancelablePromise<Array<ds_Notification>> {
+    public static deleteApiProjectSectionNotification(
+        notificationId: string,
+    ): CancelablePromise<Array<ds_Notification>> {
         return __request(OpenAPI, {
             method: 'DELETE',
-            url: '/project/section/notification/{notification_id}',
+            url: '/api/project/section/notification/{notification_id}',
             path: {
                 'notification_id': notificationId,
             },
@@ -118,13 +122,13 @@ notificationId: string,
      * @returns ds_Notification OK
      * @throws ApiError
      */
-    public static postProjectSectionNotification(
-sectionId: string,
-data: ds_CreateNotificationRequest,
-): CancelablePromise<Array<ds_Notification>> {
+    public static postApiProjectSectionNotification(
+        sectionId: string,
+        data: ds_CreateNotificationRequest,
+    ): CancelablePromise<Array<ds_Notification>> {
         return __request(OpenAPI, {
             method: 'POST',
-            url: '/project/section/{section_id}/notification',
+            url: '/api/project/section/{section_id}/notification',
             path: {
                 'section_id': sectionId,
             },
@@ -143,12 +147,12 @@ data: ds_CreateNotificationRequest,
      * @returns ds_Notification OK
      * @throws ApiError
      */
-    public static getProjectSectionNotifications(
-sectionId: string,
-): CancelablePromise<Array<ds_Notification>> {
+    public static getApiProjectSectionNotifications(
+        sectionId: string,
+    ): CancelablePromise<Array<ds_Notification>> {
         return __request(OpenAPI, {
             method: 'GET',
-            url: '/project/section/{section_id}/notifications',
+            url: '/api/project/section/{section_id}/notifications',
             path: {
                 'section_id': sectionId,
             },
@@ -165,10 +169,10 @@ sectionId: string,
      * @returns ds_Notification OK
      * @throws ApiError
      */
-    public static getUndeliveredNotifications(): CancelablePromise<Array<ds_Notification>> {
+    public static getApiUndeliveredNotifications(): CancelablePromise<Array<ds_Notification>> {
         return __request(OpenAPI, {
             method: 'GET',
-            url: '/undelivered_notifications',
+            url: '/api/undelivered_notifications',
             errors: {
                 403: `Forbidden`,
                 500: `Internal Server Error`,
@@ -182,10 +186,10 @@ sectionId: string,
      * @returns ds_Notification OK
      * @throws ApiError
      */
-    public static getUpcoming(): CancelablePromise<Array<ds_Notification>> {
+    public static getApiUpcoming(): CancelablePromise<Array<ds_Notification>> {
         return __request(OpenAPI, {
             method: 'GET',
-            url: '/upcoming',
+            url: '/api/upcoming',
             errors: {
                 403: `Forbidden`,
                 500: `Internal Server Error`,

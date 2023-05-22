@@ -6,3 +6,4 @@ export type ds_UpdateSectionRequest = {
     color?: string;
     title?: string;
 };
+

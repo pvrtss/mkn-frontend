@@ -13,23 +13,23 @@ export class CollaborationsService {
     /**
      * Adds collaborators
      * Adds a collaborator to the current project and returns all collaborators of this project
-     * @param collaboratorId Collaborator ID
+     * @param collaboratorName Collaborator nickname
      * @param projectId Project ID
      * @returns ds_User OK
      * @throws ApiError
      */
-    public static postProjectCollaborator(
-collaboratorId: string,
-projectId: string,
-): CancelablePromise<Array<ds_User>> {
+    public static postApiProjectCollaborator(
+        collaboratorName: string,
+        projectId: string,
+    ): CancelablePromise<Array<ds_User>> {
         return __request(OpenAPI, {
             method: 'POST',
-            url: '/project/{project_id}/collaborator',
+            url: '/api/project/{project_id}/collaborator',
             path: {
                 'project_id': projectId,
             },
             query: {
-                'collaborator_id': collaboratorId,
+                'collaborator_name': collaboratorName,
             },
             errors: {
                 403: `Forbidden`,
@@ -41,23 +41,23 @@ projectId: string,
     /**
      * Deletes collaborator
      * Removes a collaborator from the current project and returns all collaborators of this project
-     * @param collaboratorId Collaborator ID
+     * @param collaboratorName Collaborator nickname
      * @param projectId Project ID
      * @returns ds_Collaboration OK
      * @throws ApiError
      */
-    public static deleteProjectCollaborator(
-collaboratorId: string,
-projectId: string,
-): CancelablePromise<Array<ds_Collaboration>> {
+    public static deleteApiProjectCollaborator(
+        collaboratorName: string,
+        projectId: string,
+    ): CancelablePromise<Array<ds_Collaboration>> {
         return __request(OpenAPI, {
             method: 'DELETE',
-            url: '/project/{project_id}/collaborator',
+            url: '/api/project/{project_id}/collaborator',
             path: {
                 'project_id': projectId,
             },
             query: {
-                'collaborator_id': collaboratorId,
+                'collaborator_name': collaboratorName,
             },
             errors: {
                 403: `Forbidden`,
@@ -73,12 +73,12 @@ projectId: string,
      * @returns ds_User OK
      * @throws ApiError
      */
-    public static getProjectCollaborators(
-projectId: string,
-): CancelablePromise<Array<ds_User>> {
+    public static getApiProjectCollaborators(
+        projectId: string,
+    ): CancelablePromise<Array<ds_User>> {
         return __request(OpenAPI, {
             method: 'GET',
-            url: '/project/{project_id}/collaborators',
+            url: '/api/project/{project_id}/collaborators',
             path: {
                 'project_id': projectId,
             },

@@ -17,36 +17,13 @@ export class FavoriteProjectService {
      * @returns ds_FavoriteProject OK
      * @throws ApiError
      */
-    public static postFavorite(
-projectId: string,
-): CancelablePromise<Array<ds_FavoriteProject>> {
+    public static postApiFavorite(
+        projectId: string,
+    ): CancelablePromise<Array<ds_FavoriteProject>> {
         return __request(OpenAPI, {
             method: 'POST',
-            url: '/favorite',
+            url: '/api/favorite',
             query: {
-                'project_id': projectId,
-            },
-            errors: {
-                403: `Forbidden`,
-                500: `Internal Server Error`,
-            },
-        });
-    }
-
-    /**
-     * Gets favorite projects
-     * Returns favorite projects
-     * @param projectId Project ID
-     * @returns ds_Project OK
-     * @throws ApiError
-     */
-    public static getFavorite(
-projectId: string,
-): CancelablePromise<ds_Project> {
-        return __request(OpenAPI, {
-            method: 'GET',
-            url: '/favorite/{project_id}',
-            path: {
                 'project_id': projectId,
             },
             errors: {
@@ -63,12 +40,12 @@ projectId: string,
      * @returns ds_FavoriteProject OK
      * @throws ApiError
      */
-    public static deleteFavorite(
-projectId: string,
-): CancelablePromise<Array<ds_FavoriteProject>> {
+    public static deleteApiFavorite(
+        projectId: string,
+    ): CancelablePromise<Array<ds_FavoriteProject>> {
         return __request(OpenAPI, {
             method: 'DELETE',
-            url: '/favorite/{project_id}',
+            url: '/api/favorite/{project_id}',
             path: {
                 'project_id': projectId,
             },
@@ -85,10 +62,10 @@ projectId: string,
      * @returns ds_Project OK
      * @throws ApiError
      */
-    public static getFavorites(): CancelablePromise<Array<ds_Project>> {
+    public static getApiFavorites(): CancelablePromise<Array<ds_Project>> {
         return __request(OpenAPI, {
             method: 'GET',
-            url: '/favorites',
+            url: '/api/favorites',
             errors: {
                 403: `Forbidden`,
                 500: `Internal Server Error`,

@@ -18,12 +18,12 @@ export class AuthService {
      * @returns ds_User OK
      * @throws ApiError
      */
-    public static postLogin(
-data: app_LoginReqBody,
-): CancelablePromise<ds_User> {
+    public static postApiLogin(
+        data: app_LoginReqBody,
+    ): CancelablePromise<ds_User> {
         return __request(OpenAPI, {
             method: 'POST',
-            url: '/login',
+            url: '/api/login',
             body: data,
             errors: {
                 500: `Internal Server Error`,
@@ -37,10 +37,10 @@ data: app_LoginReqBody,
      * @returns ds_User OK
      * @throws ApiError
      */
-    public static getLogout(): CancelablePromise<ds_User> {
+    public static getApiLogout(): CancelablePromise<ds_User> {
         return __request(OpenAPI, {
             method: 'GET',
-            url: '/logout',
+            url: '/api/logout',
             errors: {
                 403: `Forbidden`,
                 500: `Internal Server Error`,
@@ -55,12 +55,12 @@ data: app_LoginReqBody,
      * @returns ds_User OK
      * @throws ApiError
      */
-    public static postSignup(
-data: app_SignUpReqBody,
-): CancelablePromise<ds_User> {
+    public static postApiSignup(
+        data: app_SignUpReqBody,
+    ): CancelablePromise<ds_User> {
         return __request(OpenAPI, {
             method: 'POST',
-            url: '/signup',
+            url: '/api/signup',
             body: data,
             errors: {
                 500: `Internal Server Error`,

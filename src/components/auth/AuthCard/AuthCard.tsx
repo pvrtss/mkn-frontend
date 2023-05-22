@@ -20,6 +20,9 @@ import {
 } from "./schemas";
 import { useNavigate } from "react-router-dom";
 import { TextFieldSx } from "../../common/TextField.styles";
+import { AuthService } from "../../../api/generated";
+import { toast } from "react-toastify";
+import { ApiError } from "../../../api/generated";
 
 export const AuthCard: React.FC<AuthCardTypes> = ({ login }) => {
   const [loading, setLoading] = useState(false);
@@ -44,11 +47,30 @@ export const AuthCard: React.FC<AuthCardTypes> = ({ login }) => {
     }
   }, [isSubmitSuccessful]);
 
-  const onSubmitHandler: SubmitHandler<RegisterInput | LoginInput> = (
+  const onSubmitHandler: SubmitHandler<RegisterInput | LoginInput> = async (
     values
   ) => {
-    console.log(values);
-    console.log(errors);
+    if (login) {
+      fetch("/api/login", {
+        method: "POST",
+        body: JSON.stringify({
+          username: values.username,
+          password: values.password,
+        }),
+      })
+        .then((user) => toast.success("Успешно"))
+        .catch((err) =>
+          toast.error("Неверный логин или пароль " + err.body?.message)
+        );
+    } else {
+      AuthService.postApiSignup({
+        email: values.email,
+        password: values.password,
+        username: values.username,
+      })
+        .then(() => toast.success("Аккаунт создан"))
+        .catch((err) => toast.error("Произошла ошибка: " + err));
+    }
   };
 
   const handleLoginSwitch = () => {

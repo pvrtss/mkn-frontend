@@ -17,12 +17,12 @@ export class UserService {
      * @returns ds_User OK
      * @throws ApiError
      */
-    public static putEmail(
-data: ds_ChangeEmailRequest,
-): CancelablePromise<ds_User> {
+    public static putApiEmail(
+        data: ds_ChangeEmailRequest,
+    ): CancelablePromise<ds_User> {
         return __request(OpenAPI, {
             method: 'PUT',
-            url: '/email',
+            url: '/api/email',
             body: data,
             errors: {
                 403: `Forbidden`,

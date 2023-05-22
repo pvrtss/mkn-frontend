@@ -19,13 +19,13 @@ export class SectionService {
      * @returns ds_Section OK
      * @throws ApiError
      */
-    public static putProjectSection(
-data: ds_UpdateSectionRequest,
-sectionId: string,
-): CancelablePromise<Array<ds_Section>> {
+    public static putApiProjectSection(
+        data: ds_UpdateSectionRequest,
+        sectionId: string,
+    ): CancelablePromise<Array<ds_Section>> {
         return __request(OpenAPI, {
             method: 'PUT',
-            url: '/project/section/{section_id}',
+            url: '/api/project/section/{section_id}',
             path: {
                 'section_id': sectionId,
             },
@@ -45,12 +45,12 @@ sectionId: string,
      * @returns ds_Section OK
      * @throws ApiError
      */
-    public static deleteProjectSection(
-sectionId: string,
-): CancelablePromise<Array<ds_Section>> {
+    public static deleteApiProjectSection(
+        sectionId: string,
+    ): CancelablePromise<Array<ds_Section>> {
         return __request(OpenAPI, {
             method: 'DELETE',
-            url: '/project/section/{section_id}',
+            url: '/api/project/section/{section_id}',
             path: {
                 'section_id': sectionId,
             },
@@ -70,13 +70,13 @@ sectionId: string,
      * @returns ds_Section OK
      * @throws ApiError
      */
-    public static postProjectSection(
-projectId: string,
-data: ds_CreateSectionRequest,
-): CancelablePromise<Array<ds_Section>> {
+    public static postApiProjectSection(
+        projectId: string,
+        data: ds_CreateSectionRequest,
+    ): CancelablePromise<Array<ds_Section>> {
         return __request(OpenAPI, {
             method: 'POST',
-            url: '/project/{project_id}/section',
+            url: '/api/project/{project_id}/section',
             path: {
                 'project_id': projectId,
             },
@@ -95,12 +95,12 @@ data: ds_CreateSectionRequest,
      * @returns ds_Section OK
      * @throws ApiError
      */
-    public static getProjectSections(
-projectId: string,
-): CancelablePromise<Array<ds_Section>> {
+    public static getApiProjectSections(
+        projectId: string,
+    ): CancelablePromise<Array<ds_Section>> {
         return __request(OpenAPI, {
             method: 'GET',
-            url: '/project/{project_id}/sections',
+            url: '/api/project/{project_id}/sections',
             path: {
                 'project_id': projectId,
             },

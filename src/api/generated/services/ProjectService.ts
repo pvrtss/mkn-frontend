@@ -18,12 +18,12 @@ export class ProjectService {
      * @returns ds_Project OK
      * @throws ApiError
      */
-    public static postProject(
-data: ds_CreateProjectRequest,
-): CancelablePromise<ds_Project> {
+    public static postApiProject(
+        data: ds_CreateProjectRequest,
+    ): CancelablePromise<ds_Project> {
         return __request(OpenAPI, {
             method: 'POST',
-            url: '/project',
+            url: '/api/project',
             body: data,
             errors: {
                 403: `Forbidden`,
@@ -41,13 +41,13 @@ data: ds_CreateProjectRequest,
      * @returns ds_Project OK
      * @throws ApiError
      */
-    public static putProject(
-projectId: string,
-data: ds_UpdateProjectRequest,
-): CancelablePromise<Array<ds_Project>> {
+    public static putApiProject(
+        projectId: string,
+        data: ds_UpdateProjectRequest,
+    ): CancelablePromise<Array<ds_Project>> {
         return __request(OpenAPI, {
             method: 'PUT',
-            url: '/project/{project_id}',
+            url: '/api/project/{project_id}',
             path: {
                 'project_id': projectId,
             },
@@ -67,12 +67,12 @@ data: ds_UpdateProjectRequest,
      * @returns ds_Project OK
      * @throws ApiError
      */
-    public static deleteProject(
-projectId: string,
-): CancelablePromise<Array<ds_Project>> {
+    public static deleteApiProject(
+        projectId: string,
+    ): CancelablePromise<Array<ds_Project>> {
         return __request(OpenAPI, {
             method: 'DELETE',
-            url: '/project/{project_id}',
+            url: '/api/project/{project_id}',
             path: {
                 'project_id': projectId,
             },
@@ -90,10 +90,10 @@ projectId: string,
      * @returns ds_Project OK
      * @throws ApiError
      */
-    public static getProjects(): CancelablePromise<Array<ds_Project>> {
+    public static getApiProjects(): CancelablePromise<Array<ds_Project>> {
         return __request(OpenAPI, {
             method: 'GET',
-            url: '/projects',
+            url: '/api/projects',
             errors: {
                 403: `Forbidden`,
                 500: `Internal Server Error`,
@@ -107,10 +107,10 @@ projectId: string,
      * @returns ds_Project OK
      * @throws ApiError
      */
-    public static getProjectsLatest(): CancelablePromise<Array<ds_Project>> {
+    public static getApiProjectsLatest(): CancelablePromise<Array<ds_Project>> {
         return __request(OpenAPI, {
             method: 'GET',
-            url: '/projects/latest',
+            url: '/api/projects/latest',
             errors: {
                 403: `Forbidden`,
                 500: `Internal Server Error`,
@@ -124,10 +124,10 @@ projectId: string,
      * @returns ds_Project OK
      * @throws ApiError
      */
-    public static getProjectsOwned(): CancelablePromise<Array<ds_Project>> {
+    public static getApiProjectsOwned(): CancelablePromise<Array<ds_Project>> {
         return __request(OpenAPI, {
             method: 'GET',
-            url: '/projects/owned',
+            url: '/api/projects/owned',
             errors: {
                 403: `Forbidden`,
                 500: `Internal Server Error`,

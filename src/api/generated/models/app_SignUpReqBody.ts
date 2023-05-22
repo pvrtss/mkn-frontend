@@ -7,3 +7,4 @@ export type app_SignUpReqBody = {
     password: string;
     username: string;
 };
+

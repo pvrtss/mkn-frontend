@@ -7,3 +7,4 @@ export type ds_FavoriteProject = {
     project_id?: string;
     user_id?: string;
 };
+

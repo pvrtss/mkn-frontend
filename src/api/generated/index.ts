@@ -19,6 +19,7 @@ export type { ds_Notification } from './models/ds_Notification';
 export type { ds_Project } from './models/ds_Project';
 export type { ds_ResendNotificationRequest } from './models/ds_ResendNotificationRequest';
 export type { ds_Section } from './models/ds_Section';
+export type { ds_UpdateNotificationRequest } from './models/ds_UpdateNotificationRequest';
 export type { ds_UpdateProjectRequest } from './models/ds_UpdateProjectRequest';
 export type { ds_UpdateSectionRequest } from './models/ds_UpdateSectionRequest';
 export type { ds_User } from './models/ds_User';

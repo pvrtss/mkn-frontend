@@ -10,10 +10,11 @@ import {
 import { EditInput } from "../../components/common/EditInput";
 import { EditInputWrap } from "./ProfilePage.style";
 import { Button } from "@mui/material";
+import { AuthService } from "../../api/generated";
 
 export const ProfilePage: React.FC<ProfilePageProps> = () => {
   const handleLogout = () => {
-    alert("logout");
+    AuthService.getApiLogout().then();
   };
 
   return (
